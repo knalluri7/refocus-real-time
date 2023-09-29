@@ -31,7 +31,7 @@ const clients = {
 module.exports = {
   init(io) {
     conf.pubSubPerspectives
-    .map((url) => redis.createClient({url: url, tls: tlsOptions}))
+    .map((url) => redis.createClient(url))
     .forEach((client) => {
       clients.perspectives.push(client);
       client.subscribe(conf.perspectiveChannel);
